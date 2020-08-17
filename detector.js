@@ -1,5 +1,3 @@
-// var data = { type: "FROM_PAGE", text: "Hello from the webpage!" };
-// window.postMessage(data, "*");
 var nodiumDetector1 = [
   "post-article|first-post-viewed-timestamp",
   "post-article|posts-viewed-today-count",
