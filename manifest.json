@@ -1,0 +1,43 @@
+{
+  "name": "Nodium",
+  "description": "An extension for bypassing Medium paywall",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "browser_action": {
+    "default_title": "Nodium - An extension for bypassing Medium paywall",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "logo.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "content_script.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "content_script.js"
+  ],
+  "manifest_version": 2
+}

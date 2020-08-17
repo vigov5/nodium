@@ -1,0 +1,13 @@
+#nodium-root {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 9999;
+  background-color: #42389d;
+  color: white;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
