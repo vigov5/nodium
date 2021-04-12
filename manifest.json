@@ -30,6 +30,16 @@
         "https://*/*",
         "http://*/*"
       ],
+      "run_at": "document_start",
+      "js": [
+        "inject_preload_hook.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
       "run_at": "document_end",
       "js": [
         "content_script.js"
@@ -37,6 +47,7 @@
     }
   ],
   "web_accessible_resources": [
+    "preload_hook.js",
     "content_script.js"
   ],
   "manifest_version": 2
