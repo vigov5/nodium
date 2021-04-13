@@ -1,5 +1,9 @@
-# nodium
-An extension for bypassing Medium paywall.
+# Nodium
+Bypassing Medium paywall with ease 🎉
+
+Nodium automatically detects if the site is powered by Medium, and add it to bypass list. All you have to do now is reload the page once, and enjoy your restriction-free reading 🤩
+
+Note: fixed to works with new Medium's changes. Try to "force reload" page (Windows: Ctrl + F5, Mac: Apple + R or Command + R, Linux: F5) and check dev tool console if it doesn't work.
 
 ## Download
 

@@ -1,7 +1,6 @@
 var linkId = (1 + Math.random()).toString(36).substring(2, 12)
 // load code by string to ensure execution order
 var preload_hook_code = `
-window.NODIUM_ID = '${chrome.runtime.id}'
 console.log('[NODIUM] Start preload hook...')
 
 function buildProxy(target, handler) {

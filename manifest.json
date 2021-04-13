@@ -1,7 +1,7 @@
 {
   "name": "Nodium",
   "description": "An extension for bypassing Medium paywall",
-  "version": "1.0",
+  "version": "2.0",
   "permissions": [
     "activeTab",
     "storage",

@@ -19,8 +19,8 @@ var nodiumDetector3 =
   window.__PRELOADED_STATE__.client != undefined &&
   window.__PRELOADED_STATE__.client.isNativeMedium != undefined
 
-;[
-  nodiumDetector1 || nodiumDetector2 || nodiumDetector3,
-  location.origin,
-  location.href,
-]
+  ;[
+    nodiumDetector1 || nodiumDetector2 || nodiumDetector3,
+    location.origin,
+    location.href,
+  ]
