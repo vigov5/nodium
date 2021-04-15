@@ -7,7 +7,7 @@ Note: fixed to works with new Medium's changes. Try to "force reload" page (Wind
 
 ## Download
 
-- [Chrome Web Store](https://chrome.google.com/webstore/detail/nodium/egbbkobkjhplmjkhiigidfppcjljickb)
+- ~~[Chrome Web Store](https://chrome.google.com/webstore/detail/nodium/egbbkobkjhplmjkhiigidfppcjljickb)~~ -> Please clone this repo and load unpack extension (bypass extension is rejected from review)
 - [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/nodium/)
 
 ## Screenshot
