@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (!document.getElementById('nodium-root')) {
     const element = document.createElement('div')
     element.setAttribute('id', 'nodium-root')
-    element.innerHTML = `Nodium | <strong>${message.origin}</strong> added. Please reload 👍`
+    element.innerHTML = `Nodium | <strong>${message.origin}</strong> added 👍`
     document.body.appendChild(element)
 
     setTimeout(function () {

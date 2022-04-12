@@ -10,64 +10,43 @@ function buildProxy(target, handler) {
   return proxy
 }
 
-function hook() {
-  window.NODIUM_INJECTED = false
+
+function first_hook() {
   apply_handler = {
     apply: function (target, thisArg, args) {
-      if (!window.NODIUM_INJECTED) args[2]['configurable'] = true
-      r = target.apply(thisArg, args)
-
-      if (window.NODIUM_INJECTED) return r
-
-      prop = args[1]
-      try {
-        if (
-          r != undefined &&
-          typeof r === 'object' &&
-          r.hasOwnProperty(prop) &&
-          !r.hasOwnProperty('constructor') &&
-          typeof r[prop] === 'function' &&
-          r[prop].length == 1
-        ) {
-          result = r[prop]('')
-          if (
-            typeof result === 'object' &&
-            result !== null &&
-            JSON.stringify(Object.keys(result)) ==
-              JSON.stringify(['type', 'referrer'])
-          ) {
-            function t(e) {
-              return {
-                type: 'SET_REFERRER_ONCE',
-                referrer: 'https://t.co/${linkId}',
-              }
-            }
-            args[2] = {
-              enumerable: true,
-              get: () => t,
-            }
-            r = target.apply(thisArg, args)
-
-            window.NODIUM_INJECTED = true
-            // restore original Object.defineProperty
-            Object.defineProperty = Object.defineProperty.originalTarget
-            console.log('[NODIUM] Injected!')
-          }
-        }
-      } catch (e) {}
-
-      return r
+      if (typeof args[1] === 'symbol' && args[1].description === '__APOLLO_CONTEXT__') {
+        second_hook()
+        // restore original Object.defineProperty
+        Object.defineProperty = Object.defineProperty.originalTarget
+      }
+      return target.apply(thisArg, args)
     },
   }
-
   Object.defineProperty = buildProxy(Object.defineProperty, apply_handler)
+}
+
+function second_hook() {
+  apply_handler = {
+    apply: function (target, thisArg, args) {
+      if ('postMeteringOptions' in args[2]) {
+        args[2].postMeteringOptions = {
+          referrer:'https://t.co/${linkId}',
+          sk:null,
+          source:null
+        }
+      }
+      return target.apply(thisArg, args)
+    }
+  }
+  __APOLLO_CLIENT__.queryManager.getObservableFromLink = buildProxy(__APOLLO_CLIENT__.queryManager.getObservableFromLink, apply_handler)
+  console.log('[NODIUM] Injected!')
 }
 
 checkingInterval = setInterval(function () {
   var html = document.getElementsByTagName('html')[0].innerHTML
   if (html.indexOf('content="com.medium.reader"', html.indexOf('NODIUM_END') + 300) != -1) {
     console.log('[NODIUM] The site is powered by Medium!')
-    hook()
+    first_hook()
     clearInterval(checkingInterval)
   }
 }, 100)
