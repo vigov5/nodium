@@ -12,5 +12,4 @@ Note: fixed to works with new Medium's changes. Try to "force reload" page (Wind
 
 ## Screenshot
 
-![](https://i.imgur.com/UxpPQgV.png)
-![](https://i.imgur.com/3pr88Ue.png)
+![](https://i.imgur.com/h1SLwfR.png)
