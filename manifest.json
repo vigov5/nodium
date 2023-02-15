@@ -20,23 +20,9 @@
   "icons": {
     "128": "logo.png"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://*/*",
-        "http://*/*"
-      ],
-      "run_at": "document_start",
-      "js": [
-        "inject_preload_hook.js"
-      ]
-    }
-  ],
   "web_accessible_resources": [
     {
       "resources": [
-        "inject_preload_hook.js",
-        "hook.js",
         "detector.js"
       ],
       "matches": [
