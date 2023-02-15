@@ -3,14 +3,19 @@
   "description": "An extension for bypassing Medium paywall",
   "version": "2.2",
   "permissions": [
-    "scripting"
+    "scripting",
+    "webNavigation",
+    "cookies",
+    "storage"
   ],
   "optional_host_permissions": [
     "*://*/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
-    "default_title": "Nodium - An extension for bypassing Medium paywall",
-    "default_popup": "popup.html"
+    "default_title": "Nodium - An extension for bypassing Medium paywall by @vigov5"
   },
   "icons": {
     "128": "logo.png"
@@ -27,9 +32,18 @@
       ]
     }
   ],
-  "web_accessible_resources": [{
-    "resources": ["inject_preload_hook.js", "hook.js"],
-    "matches": ["http://*/*", "https://*/*"]
-  }],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "inject_preload_hook.js",
+        "hook.js",
+        "detector.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ],
   "manifest_version": 3
 }
